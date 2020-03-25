@@ -71,7 +71,7 @@ def preprocess_tweet(tweet):
 def preprocess_csv(csv_file_name, processed_file_name, test_file=False):
     save_to_file = open(processed_file_name, 'w')
 
-    with open(csv_file_name, 'r') as csv:
+    with open(csv_file_name, 'r', encoding="ISO-8859-1") as csv:
         lines = csv.readlines()
         total = len(lines)
         for i, line in enumerate(lines):
@@ -90,13 +90,13 @@ def preprocess_csv(csv_file_name, processed_file_name, test_file=False):
                                    (tweet_id, processed_tweet))
             write_status(i + 1, total)
     save_to_file.close()
-    print '\nSaved processed tweets to: %s' % processed_file_name
+    print('\nSaved processed tweets to: %s' % processed_file_name)
     return processed_file_name
 
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print 'Usage: python preprocess.py <raw-CSV>'
+        print('Usage: python preprocess.py <raw-CSV>')
         exit()
     use_stemmer = False
     csv_file_name = sys.argv[1]
