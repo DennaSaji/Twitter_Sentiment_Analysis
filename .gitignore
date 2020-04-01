@@ -1,4 +1,5 @@
 # Python
+*.csv
 *.pyc
 *.out
 *.h5
